@@ -39,10 +39,8 @@ function decrementTasks(){
 
 }
 
-function insertTask(){
+function insertTask(inputValue){
   var li = document.createElement("li");
-
-  var inputValue = document.getElementById("input").value;
   
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
@@ -85,4 +83,40 @@ for (i = 0; i < close.length; i++) {
   decrementTasks();
   }
 }
+
+
+}
+function takeTask(){
+
+  var inputValue = document.getElementById("input").value;
+  insertTask(inputValue);
+
+}
+function runSpeechRecognition() {
+  // get output div reference
+  // get action element reference
+  var action = document.getElementById("action");
+      // new speech recognition object
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var recognition = new SpeechRecognition();
+  
+      // This runs when the speech recognition service starts
+      recognition.onstart = function() {
+          action.innerHTML = "<p style='color:white'>listening, please speak...<p>";
+      };
+      
+      recognition.onspeechend = function() {
+          action.innerHTML = "";
+          recognition.stop();
+      }
+    
+      // This runs when the speech recognition service returns result
+      recognition.onresult = function(event) {
+          var transcript = event.results[0][0].transcript;
+          var confidence = event.results[0][0].confidence;
+          insertTask(transcript);
+      };
+    
+       // start recognition
+       recognition.start();
 }
