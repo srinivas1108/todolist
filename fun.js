@@ -2,7 +2,7 @@ var node = document.getElementById("input");
 var tasks=[];
 node.addEventListener("keyup",function(event){
   if(event.key==="Enter"){
-    insertTask();
+    insertTask(node.value);
   }
 });
 closeTask();
