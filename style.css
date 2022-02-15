@@ -101,7 +101,7 @@ body {
 @media only screen and (max-device-width: 500px) {
   body {
     background-color: rgba(23, 20, 190, 0.616);
-    margin-left: 100px;
+    margin-left: 60px;
   }
   marquee {
     font-size: 50px;
@@ -115,9 +115,9 @@ body {
     position: relative;
     background-color: white;
     width: 70%;
-    height: 200px;
+    height: 100px;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 60px;
     margin-left: 0px;
     border-radius: 20px;
   }
@@ -149,7 +149,7 @@ body {
   p {
     color: white;
 
-    font-size: large;
+    font-size: xx-large;
   }
   button {
     height: 67px;
